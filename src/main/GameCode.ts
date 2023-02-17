@@ -75,14 +75,9 @@ export default class GameCode {
 	//初始化装角色的box
 	private initRoleBox(posy: number): void {
 		let scX: number = Laya.Browser.window.scX;
-		if (config.nickName.indexOf("rdgztest") != -1 || config.nickName.indexOf("minigame") != -1 || config.nickName.indexOf("Lu。") != -1 || config.nickName.indexOf("水星") != -1
-			|| config.nickName.indexOf("Fs") != -1 || config.nickName.indexOf("子昂2019") != -1 || config.nickName.indexOf("唐若") != -1 || config.nickName.indexOf("雨墨") != -1) {
-			this.roleBox = this.getImage('xinzhuye/kk.png', 750 * scX, 900 * scX, 0, posy);
-			this.row = 10;
-			this.clos = 10;
-		} else {
-			this.roleBox = this.getImage('xinzhuye/kk.png', 750 * scX, 696 * scX, 0, posy);
-		}
+		
+		this.roleBox = this.getImage('xinzhuye/kk.png', 750 * scX, 696 * scX, 0, posy);
+		
 		Laya.stage.addChild(this.roleBox);
 		this.initStarArray();
 	}
@@ -365,20 +360,10 @@ export default class GameCode {
 
 			if (account) { //游戏结算
 				if (starLen == 0) {
-					if (config.nickName.indexOf("rdgztest") != -1 || config.nickName.indexOf("minigame") != -1 || config.nickName.indexOf("Lu。") != -1 || config.nickName.indexOf("水星") != -1
-						|| config.nickName.indexOf("Fs") != -1 || config.nickName.indexOf("子昂2019") != -1 || config.nickName.indexOf("唐若") != -1 || config.nickName.indexOf("雨墨") != -1) {
-						config.testHp -= len * 10;
-						this.main.nowGold.text = `本局目标：${new FormatNumber(config.testHp).formatPointNumber()}`;
-					}
 					self.setAccountData(self.aliveOk, 1);
 				}
 			} else {
 				if (starLen == 0) {
-					if (config.nickName.indexOf("rdgztest") != -1 || config.nickName.indexOf("minigame") != -1 || config.nickName.indexOf("Lu。") != -1 || config.nickName.indexOf("水星") != -1
-						|| config.nickName.indexOf("Fs") != -1 || config.nickName.indexOf("子昂2019") != -1 || config.nickName.indexOf("唐若") != -1 || config.nickName.indexOf("雨墨") != -1) {
-						config.testHp -= len * 10;
-						this.main.nowGold.text = `本局目标：${new FormatNumber(config.testHp).formatPointNumber()}`;
-					}
 					// if (len >= 3 && len < 6) {
 					// 	new SoundManager('shengyin/good.mp3', false, 1);
 					// }
@@ -672,10 +657,8 @@ export default class GameCode {
 						this.sendParticle(Laya.stage.width / 4 * 3 + (Laya.stage.width / 4 - 95 * Laya.Browser.window.scX) / 2 + 95 * Laya.Browser.window.scX / 2, 1160 * Laya.Browser.window.scY + 95 * Laya.Browser.window.scX / 2, 30 * Laya.Browser.window.scX + this.rowWidth() / 2 + pos.x * this.rowWidth(),
 							this.boxY + this.rowWidth() / 2 + pos.y * this.rowWidth(), i, removeChildArr.length, () => {
 								this.roleBox.removeChild(_child);
-								if (config.nickName.indexOf("rdgztest") == -1 && config.nickName.indexOf("minigame") == -1 && config.nickName.indexOf("Lu。") == -1 && config.nickName.indexOf("水星") == -1
-									&& config.nickName.indexOf("Fs") == -1 && config.nickName.indexOf("子昂2019") == -1 && config.nickName.indexOf("唐若") == -1 && config.nickName.indexOf("雨墨") == -1) {
-									this.flayProp(`${color}p`, child, removeLen);
-								}
+								this.flayProp(`${color}p`, child, removeLen);
+								
 								this.playAnimation(`${_color}`, _child, 50, _len, false, _removeLen); //到时候根据颜色去
 							});
 					}, i * 300);
@@ -689,10 +672,7 @@ export default class GameCode {
 				((color, child, i, len, removeLen) => {
 					setTimeout(() => {
 						this.roleBox.removeChild(child);
-						if (config.nickName.indexOf("rdgztest") == -1 && config.nickName.indexOf("minigame") == -1 && config.nickName.indexOf("Lu。") == -1 && config.nickName.indexOf("水星") == -1
-							&& config.nickName.indexOf("Fs") == -1 && config.nickName.indexOf("子昂2019") == -1 && config.nickName.indexOf("唐若") == -1 && config.nickName.indexOf("雨墨") == -1) {
-							this.flayProp(`${color}p`, child, removeLen);
-						}
+						this.flayProp(`${color}p`, child, removeLen);
 						this.playAnimation(`${color}`, child, 50, len, false, removeLen); //到时候根据颜色去
 					}, i * 50);
 				})(this.IMGARR[colorArr[i] - 1], removeChildArr[i], i, removeChildArr.length - i - 1, removeChildArr.length);
