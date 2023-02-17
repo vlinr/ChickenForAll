@@ -272,11 +272,7 @@ export default class Home extends Laya.Script {
                 this.jewelNum.text = `${new FormatNumber(config.zsNum).formatPointNumber()}`;
             });
         }
-        if(config.nickName.indexOf("rdgztest") != -1 || config.nickName.indexOf("minigame") != -1 || config.nickName.indexOf("Lu。")!=-1|| config.nickName.indexOf("水星")!=-1
-        || config.nickName.indexOf("Fs")!=-1|| config.nickName.indexOf("子昂2019")!=-1|| config.nickName.indexOf("唐若")!=-1|| config.nickName.indexOf("雨墨")!=-1){
-            invitBox.visible=false;
-            rankBox.pos(invitBox.x, rankIcon.height / 2);
-        }
+        
     }
     //添加星星
     private randomStar(): Laya.Sprite {
