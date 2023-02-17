@@ -139,29 +139,9 @@ export default class Mains extends Laya.Script {
         this.scene.addChild(this.btnGroup);
         // Laya.timer.loop(5000, this, this.loop);
         this.addLeftGole();
-        if(config.nickName.indexOf("rdgztest") != -1 || config.nickName.indexOf("minigame") != -1 || config.nickName.indexOf("Lu。")!=-1|| config.nickName.indexOf("水星")!=-1
-        || config.nickName.indexOf("Fs")!=-1|| config.nickName.indexOf("子昂2019")!=-1|| config.nickName.indexOf("唐若")!=-1|| config.nickName.indexOf("雨墨")!=-1){
-            this.leftTop.visible=false;
-            this.roleBox.visible=false;
-            rightBtn.visible=false;
-            this.prosBox.visible=false;
-            this.nowGold = new Laya.Text();
-            config.testHp=10000;
-            this.nowGold.text = `本局目标：${new FormatNumber(config.testHp).formatPointNumber()}`;
-            this.nowGold.width = Laya.stage.width;
-            this.nowGold.fontSize = 50 * scX;
-            this.nowGold.color = '#fff';
-            this.nowGold.stroke = 2;
-            this.nowGold.strokeColor = '#000';
-            this.nowGold.align = 'center';
-            this.nowGold.pos(0, Laya.stage.height - 1150 * scX);
-            Laya.stage.addChild(this.nowGold);
-            this.leftBg.visible=false;
-            this.centerBox.visible=false;
-            this.gameCode = new GameCode(Laya.stage.height - 1000 * scX, this.role, this);//初始化游戏
-        }else{
-            this.gameCode = new GameCode(Laya.stage.height - 770 * scX, this.role, this);//初始化游戏
-        }
+        
+        this.gameCode = new GameCode(Laya.stage.height - 770 * scX, this.role, this);//初始化游戏
+        
         this.setArms();
     }
     //设置五个道具以及级别
